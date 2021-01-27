@@ -5,6 +5,6 @@ CREATE TABLE `Person` (
      `birth_date` TIMESTAMP
 );
 
-INSERT INTO PERSON (name, location, birth_date) values ('anruag', 'hydrabad', sysdate());
+INSERT INTO PERSON (name, location, birth_date) values ('anurag', 'hydrabad', sysdate());
 INSERT INTO PERSON (name, location, birth_date) values ('rahul', 'pune', sysdate());
 INSERT INTO PERSON (name, location, birth_date) values ('shivaji', 'nagpur', sysdate());
