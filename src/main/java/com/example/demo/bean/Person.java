@@ -3,10 +3,14 @@ package com.example.demo.bean;
 import java.util.Date;
 
 public class Person {
+
     private int id;
     private String name;
     private String location;
     private Date birthDate;
+
+    public Person() {
+    }
 
     public Person(int id, String name, String location, Date birthDate) {
         this.id = id;
@@ -51,9 +55,6 @@ public class Person {
 
     public void setLocation(String location) {
         this.location = location;
-    }
-
-    public Person() {
     }
 
     @Override

@@ -13,7 +13,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class DemoApplication implements CommandLineRunner {
+public class SpringJdbcDemoApplication implements CommandLineRunner {
 
 	@Autowired
 	PersonJdbcDAO dao;
@@ -21,7 +21,7 @@ public class DemoApplication implements CommandLineRunner {
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
 
 	public static void main(String[] args) {
-		SpringApplication.run(DemoApplication.class, args);
+		SpringApplication.run(SpringJdbcDemoApplication.class, args);
 	}
 
 	@Override
@@ -29,9 +29,8 @@ public class DemoApplication implements CommandLineRunner {
 		logger.info("All users ->{}", dao.findAll());
 		logger.info("find all user ->{}", dao.findById(1));
 		logger.info("find a user ->{}", dao.findByName("anurag"));
-		// logger.info("deleted a user ->{}", dao.deleteById(1));
-		// logger.info("update a user ->{}", dao.update(new Person(1, "aaa", "sinhagad",
-		// new Date())));
+		logger.info("deleted a user ->{}", dao.deleteById(1));
+		logger.info("update a user ->{}", dao.update(new Person(1, "aaa", "sinhagad", new Date())));
 		logger.info("create a user ->{}", dao.insert(new Person("saurabh", "sinhagad", new Date())));
 
 	};
