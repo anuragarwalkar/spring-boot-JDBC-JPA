@@ -29,8 +29,8 @@ public class SpringJpaDemoApplication implements CommandLineRunner {
 		logger.info("Find by id ={}", jpa.findById(111));
 		logger.info("Create new ={}", jpa.insert(new Person("Anurag", "Banalore", new Date())));
 		logger.info("Find by id and update  ={}", jpa.update(new Person(111, "Anurag", "Banalore", new Date())));
-		jpa.deleteById(111);
 		logger.info("find all ={}", jpa.findAll());
-	};
+		jpa.deleteById(113);
+	}
 
 }
