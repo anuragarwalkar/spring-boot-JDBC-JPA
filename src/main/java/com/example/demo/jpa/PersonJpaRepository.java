@@ -1,5 +1,6 @@
 package com.example.demo.jpa;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -40,4 +41,18 @@ public class PersonJpaRepository {
         Person person = this.findById(id);
         entityManager.remove(person);
     }
+
+    // Important ----
+    // As we have enabled @transcational the code in this method is a
+    // traction hence it will update the location
+    public void playWithEntityManger() {
+        Person newPerson = new Person("Inspiron", "local", new Date());
+
+        entityManager.persist(newPerson); // It will run the tranctional mode
+
+        // entityManager.merge(newPerson);
+
+        newPerson.setLocation("localhost");
+    }
+
 }

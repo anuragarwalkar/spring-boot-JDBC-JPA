@@ -14,6 +14,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.annotation.DirtiesContext;
 
 @SpringBootTest
 class PersonRepositoryTest {
@@ -35,6 +36,7 @@ class PersonRepositoryTest {
 	}
 
 	@Test
+	@DirtiesContext // Dry Run the test (It will delte the row and after runing it will restore)
 	void deletePersonById_basic() {
 		jpa.deleteById(112);
 		assertNull(jpa.findById(112));
