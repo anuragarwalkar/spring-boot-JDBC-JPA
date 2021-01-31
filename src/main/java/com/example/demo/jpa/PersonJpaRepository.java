@@ -47,12 +47,23 @@ public class PersonJpaRepository {
     // traction hence it will update the location
     public void playWithEntityManger() {
         Person newPerson = new Person("Inspiron", "local", new Date());
-
         entityManager.persist(newPerson); // It will run the tranctional mode
-
         // entityManager.merge(newPerson);
-
         newPerson.setLocation("localhost");
+        entityManager.flush(); // To update database till this step
+
+        Person aNewPerson = new Person("Latitude", "local", new Date());
+        entityManager.persist(aNewPerson);
+        entityManager.flush();
+
+        newPerson.setName("Inspiron 3560");
+
+        Person swapnil = new Person("Swapnil", "kasarwadi", new Date());
+        entityManager.persist(swapnil);
+        entityManager.flush();
+
+        // entityManager.clear();
+
     }
 
 }
