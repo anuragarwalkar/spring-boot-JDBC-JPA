@@ -1,11 +1,15 @@
 package com.example.demo.bean;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.NamedQuery;
+
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 @Entity
 @NamedQuery(name = "find_all_persons", query = "select p from Person p")
@@ -17,6 +21,12 @@ public class Person {
     private String name;
     private String location;
     private Date birthDate;
+
+    @UpdateTimestamp
+    private LocalDateTime lastUpdatedDate;
+
+    @CreationTimestamp
+    private LocalDateTime createdDate;
 
     public Person(int id, String name, String location, Date birthDate) {
         this.id = id;
@@ -69,6 +79,22 @@ public class Person {
     @Override
     public String toString() {
         return "\nPerson [birthDate=" + birthDate + ", id=" + id + ", location=" + location + ", name=" + name + "]";
+    }
+
+    public LocalDateTime getLastUpdatedDate() {
+        return lastUpdatedDate;
+    }
+
+    public void setLastUpdatedDate(LocalDateTime lastUpdatedDate) {
+        this.lastUpdatedDate = lastUpdatedDate;
+    }
+
+    public LocalDateTime getCreatedDate() {
+        return createdDate;
+    }
+
+    public void setCreatedDate(LocalDateTime createdDate) {
+        this.createdDate = createdDate;
     }
 
 }
