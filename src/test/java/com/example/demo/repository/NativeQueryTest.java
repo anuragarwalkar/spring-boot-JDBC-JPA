@@ -21,7 +21,7 @@ public class NativeQueryTest {
 
     @Test
     public void getPersons() {
-        Query query = entityManager.createNativeQuery("Select * From Course");
+        Query query = entityManager.createNativeQuery("Select * From Course", Person.class);
         List<Person> resultList = query.getResultList();
 
         logger.info("List of person {}", resultList);

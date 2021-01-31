@@ -28,19 +28,6 @@ public class Person {
     @CreationTimestamp
     private LocalDateTime createdDate;
 
-    public Person(int id, String name, String location, Date birthDate) {
-        this.id = id;
-        this.name = name;
-        this.birthDate = birthDate;
-        this.location = location;
-    }
-
-    public Person(String name, String location, Date birthDate) {
-        this.name = name;
-        this.birthDate = birthDate;
-        this.location = location;
-    }
-
     public int getId() {
         return id;
     }
@@ -95,6 +82,28 @@ public class Person {
 
     public void setCreatedDate(LocalDateTime createdDate) {
         this.createdDate = createdDate;
+    }
+
+    public Person(String name, String location, Date birthDate, LocalDateTime lastUpdatedDate,
+            LocalDateTime createdDate) {
+        this.name = name;
+        this.location = location;
+        this.birthDate = birthDate;
+        this.lastUpdatedDate = lastUpdatedDate;
+        this.createdDate = createdDate;
+    }
+
+    public Person(int id, String name, String location, Date birthDate) {
+        this.id = id;
+        this.name = name;
+        this.location = location;
+        this.birthDate = birthDate;
+    }
+
+    public Person(String name, String location, Date birthDate) {
+        this.name = name;
+        this.location = location;
+        this.birthDate = birthDate;
     }
 
 }
