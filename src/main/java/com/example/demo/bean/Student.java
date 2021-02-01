@@ -3,6 +3,7 @@ package com.example.demo.bean;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Student {
@@ -12,6 +13,9 @@ public class Student {
     private Long id;
 
     private String name;
+
+    @OneToOne
+    private Passport passport;
 
     public Student() {
     }
@@ -39,6 +43,11 @@ public class Student {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return "Student [id=" + id + ", name=" + name + ", passport=" + passport + "]";
     }
 
 }

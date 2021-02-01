@@ -31,15 +31,15 @@ class PersonRepositoryTest {
 
 	@Test
 	void PersonFindById_basic() {
-		Person person = jpa.findById(111);
+		Person person = jpa.findById(111L);
 		assertEquals("Anurag", person.getName());
 	}
 
 	@Test
 	@DirtiesContext // Dry Run the test (It will delte the row and after runing it will restore)
 	void deletePersonById_basic() {
-		jpa.deleteById(112);
-		assertNull(jpa.findById(112));
+		jpa.deleteById(112L);
+		assertNull(jpa.findById(112L));
 	}
 
 	@Test
