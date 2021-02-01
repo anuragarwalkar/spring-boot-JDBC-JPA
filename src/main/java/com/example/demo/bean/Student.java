@@ -1,6 +1,7 @@
 package com.example.demo.bean;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
@@ -14,7 +15,7 @@ public class Student {
 
     private String name;
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY)
     private Passport passport;
 
     public Student() {
@@ -47,7 +48,15 @@ public class Student {
 
     @Override
     public String toString() {
-        return "Student [id=" + id + ", name=" + name + ", passport=" + passport + "]";
+        return "Student [id=" + id + ", name=" + name + "]";
+    }
+
+    public Passport getPassport() {
+        return passport;
+    }
+
+    public void setPassport(Passport passport) {
+        this.passport = passport;
     }
 
 }

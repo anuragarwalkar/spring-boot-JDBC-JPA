@@ -1,6 +1,7 @@
 package com.example.demo.repository;
 
 import javax.persistence.EntityManager;
+import javax.transaction.Transactional;
 
 import com.example.demo.bean.Student;
 
@@ -19,8 +20,10 @@ public class StudentTest {
     EntityManager entityManager;
 
     @Test
+    @Transactional
     public void getStudentDetails() {
         Student aNewStudent = entityManager.find(Student.class, 112L);
         logger.info("funck {}", aNewStudent);
+        logger.info("funck {}", aNewStudent.getPassport());
     }
 }
