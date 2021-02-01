@@ -28,7 +28,7 @@ public class SpringJpaDemoApplication implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 		logger.info("Find by id ={}", jpa.findById(111));
 		logger.info("Create new ={}", jpa.insert(new Person("Anurag", "Banalore", new Date())));
-		logger.info("Find by id and update  ={}", jpa.update(new Person(111, "Anurag", "Banalore", new Date())));
+		logger.info("Find by id and update  ={}", jpa.update(new Person(111L, "Anurag", "Banalore", new Date())));
 		logger.info("find all ={}", jpa.findAll());
 		jpa.deleteById(113);
 		jpa.playWithEntityManger();

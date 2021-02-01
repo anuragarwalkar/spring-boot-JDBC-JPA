@@ -8,13 +8,12 @@ import javax.persistence.Id;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
-import org.springframework.data.annotation.CreatedDate;
 
 @Entity
 public class Course {
     @Id
     @GeneratedValue
-    private int id;
+    private Long id;
 
     private String name;
 
@@ -27,7 +26,7 @@ public class Course {
     public Course() {
     }
 
-    public Course(int id, String name, LocalDateTime lastUpdatedDate, LocalDateTime createdDate) {
+    public Course(Long id, String name, LocalDateTime lastUpdatedDate, LocalDateTime createdDate) {
         this.id = id;
         this.name = name;
         this.lastUpdatedDate = lastUpdatedDate;
@@ -38,9 +37,41 @@ public class Course {
         this.name = name;
     }
 
-    public Course(int id, String name) {
+    public Course(Long id, String name) {
         this.id = id;
         this.name = name;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public LocalDateTime getLastUpdatedDate() {
+        return lastUpdatedDate;
+    }
+
+    public void setLastUpdatedDate(LocalDateTime lastUpdatedDate) {
+        this.lastUpdatedDate = lastUpdatedDate;
+    }
+
+    public LocalDateTime getCreatedDate() {
+        return createdDate;
+    }
+
+    public void setCreatedDate(LocalDateTime createdDate) {
+        this.createdDate = createdDate;
     }
 
 }
