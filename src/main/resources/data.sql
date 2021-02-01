@@ -13,3 +13,7 @@ INSERT INTO COURSE (id, name, created_date, last_updated_date) values(113, 'Fuje
 INSERT INTO PASSPORT (id, number) values(111, 'bikpa0743f');
 INSERT INTO PASSPORT (id, number) values(112, 'bikpa0743f');
 INSERT INTO PASSPORT (id, number) values(113, 'bikpa0743f');
+
+INSERT INTO REVIEW (id, description, rating) values(111, 'this is deno', 'good');
+INSERT INTO REVIEW (id, description, rating) values(112, 'this is jlkasd', 'bad');
+INSERT INTO REVIEW (id, description, rating) values(113, 'this is jfk', 'fk');

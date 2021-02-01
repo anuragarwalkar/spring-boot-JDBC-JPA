@@ -20,7 +20,7 @@ public class PersonJpaRepository {
     @PersistenceContext
     EntityManager entityManager;
 
-    public Person findById(int id) {
+    public Person findById(Long id) {
         return entityManager.find(Person.class, id);
     }
 
@@ -37,7 +37,7 @@ public class PersonJpaRepository {
         return entityManager.merge(person);
     }
 
-    public void deleteById(int id) {
+    public void deleteById(Long id) {
         Person person = this.findById(id);
         entityManager.remove(person);
     }
