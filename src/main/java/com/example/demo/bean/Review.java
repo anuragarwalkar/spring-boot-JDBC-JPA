@@ -3,6 +3,9 @@ package com.example.demo.bean;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+
+import org.hibernate.annotations.ManyToAny;
 
 @Entity
 public class Review {
@@ -13,6 +16,10 @@ public class Review {
     private String description;
 
     private String rating;
+
+    // ToOne is always earger fetching
+    @ManyToOne
+    private Course course;
 
     public Review(String description, String rating) {
         this.description = description;
@@ -52,6 +59,14 @@ public class Review {
         this.id = id;
         this.description = description;
         this.rating = rating;
+    }
+
+    public Course getCourse() {
+        return course;
+    }
+
+    public void setCourse(Course course) {
+        this.course = course;
     }
 
 }
