@@ -1,16 +1,12 @@
 package com.example.demo;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import javax.persistence.EntityManager;
-import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
 
-import com.example.demo.bean.Course;
-import com.example.demo.bean.Person;
 import com.example.demo.bean.Review;
 import com.example.demo.bean.Student;
 import com.example.demo.jpa.CourseRepository;
