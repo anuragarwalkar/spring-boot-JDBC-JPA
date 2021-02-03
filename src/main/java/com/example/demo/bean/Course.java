@@ -105,4 +105,9 @@ public class Course {
         this.students.add(student);
     }
 
+    @Override
+    public String toString() {
+        return "Course" + this.id + this.name;
+    }
+
 }

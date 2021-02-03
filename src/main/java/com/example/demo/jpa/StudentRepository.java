@@ -3,6 +3,7 @@ package com.example.demo.jpa;
 import javax.persistence.EntityManager;
 import javax.transaction.Transactional;
 
+import com.example.demo.bean.Course;
 import com.example.demo.bean.Student;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,8 +31,18 @@ public class StudentRepository {
         return student;
     }
 
-    // public saveStudentWithPassport() {
+    public void insertStudentAndCourse() {
+        Student student = new Student("Ranga");
+        Course course = new Course("Microservices in 100 steps");
 
-    // }
+        entityManager.persist(student);
+        entityManager.persist(course);
+
+        student.addCourse(course);
+        course.addStudent(student);
+
+        // Owning side
+        entityManager.persist(student);
+    }
 
 }
