@@ -15,6 +15,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.DirtiesContext;
+import org.springframework.transaction.annotation.Transactional;
 
 @SpringBootTest
 class PersonRepositoryTest {
@@ -33,6 +34,18 @@ class PersonRepositoryTest {
 	void PersonFindById_basic() {
 		Person person = jpa.findById(111L);
 		assertEquals("Anurag", person.getName());
+	}
+
+	@Test
+	@Transactional
+	void PersonFindById_basicFirstLevelCacheDemo() {
+		Person person = jpa.findById(111L);
+		logger.info("First person {}", person);
+		assertEquals("anurag", person.getName());
+
+		Person person1 = jpa.findById(111L);
+		logger.info("Second person {}", person1);
+		assertEquals("anurag", person1.getName());
 	}
 
 	@Test

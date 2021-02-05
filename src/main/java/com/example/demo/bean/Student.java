@@ -12,6 +12,8 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 @Entity
 public class Student {
 
@@ -24,6 +26,7 @@ public class Student {
     @OneToOne(fetch = FetchType.LAZY)
     private Passport passport;
 
+    @JsonBackReference
     @ManyToMany
     @JoinTable(name = "STUDENT_COURSE", joinColumns = @JoinColumn(name = "STUDENT_ID"), inverseJoinColumns = @JoinColumn(name = "COURSE_ID"))
     private List<Course> courses = new ArrayList<>();

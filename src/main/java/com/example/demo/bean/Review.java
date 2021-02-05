@@ -5,6 +5,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import org.hibernate.annotations.ManyToAny;
 
 @Entity
@@ -18,8 +20,13 @@ public class Review {
     private String rating;
 
     // ToOne is always earger fetching
+    @JsonBackReference
     @ManyToOne
     private Course course;
+
+    public Review() {
+
+    }
 
     public Review(String description, String rating) {
         this.description = description;

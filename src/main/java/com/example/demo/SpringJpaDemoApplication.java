@@ -18,10 +18,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.transaction.annotation.Isolation;
-import org.springframework.transaction.annotation.Transactional;
+import org.springframework.cache.annotation.EnableCaching;
 
 @SpringBootApplication
+@EnableCaching
 public class SpringJpaDemoApplication implements CommandLineRunner {
 
 	@Autowired
@@ -43,7 +43,7 @@ public class SpringJpaDemoApplication implements CommandLineRunner {
 	}
 
 	@Override
-	@Transactional(isolation = Isolation.READ_COMMITTED)
+	// @Transactional(isolation = Isolation.READ_COMMITTED)
 	public void run(String... args) throws Exception {
 		// logger.info("Find by id ={}", jpa.findById(111L));
 		// logger.info("Create new ={}", jpa.insert(new Person("Anurag", "Banalore", new
@@ -53,13 +53,13 @@ public class SpringJpaDemoApplication implements CommandLineRunner {
 		// logger.info("find all ={}", jpa.findAll());
 		// jpa.deleteById(113L);
 		// jpa.playWithEntityManger();
-		List<Review> reviews = new ArrayList<>();
+		// List<Review> reviews = new ArrayList<>();
 
-		reviews.add(new Review("hello nehu", "excellent"));
-		reviews.add(new Review("hello nehu", "god"));
+		// reviews.add(new Review("hello nehu", "excellent"));
+		// reviews.add(new Review("hello nehu", "god"));
 
-		courseRepository.addReviewForCourse(111L, reviews);
-		studentRepository.insertStudentAndCourse();
+		// courseRepository.addReviewForCourse(111L, reviews);
+		// studentRepository.insertStudentAndCourse();
 		// Course newCourse = courseRepository.findById(111L);
 
 		// TypedQuery<Course> createQuery = em.createQuery("select c from Course c where
@@ -67,12 +67,15 @@ public class SpringJpaDemoApplication implements CommandLineRunner {
 		// TypedQuery<Course> createQuery = em.createQuery("select c from Course c where
 		// size(c.students) > 2",
 		// Course.class);
-		TypedQuery<Student> createQuery = em
-				.createQuery("Select s from Student s where s.passport.number like '%0743%'", Student.class);
+		// TypedQuery<Student> createQuery = em
+		// .createQuery("Select s from Student s where s.passport.number like '%0743%'",
+		// Student.class);
 		// List<Course> resultList = createQuery.getResultList();
-		List<Student> resultList = createQuery.getResultList();
+		// List<Student> resultList = createQuery.getResultList();
 
-		logger.info("Result {}", resultList);
+		// logger.info("Result {}", resultList);
+
+		System.out.println("aasasasasaaaaaaaaaa" + courseRepository.findById(111L));
 
 	}
 

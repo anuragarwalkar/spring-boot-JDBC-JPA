@@ -4,16 +4,22 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.Cacheable;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 @Entity
+@Cacheable
 public class Course {
     @Id
     @GeneratedValue
@@ -22,13 +28,15 @@ public class Course {
     private String name;
 
     // ToMany is always lazy fetching
-    @OneToMany(mappedBy = "course")
+    @JsonManagedReference
+    @OneToMany(mappedBy = "course", fetch = FetchType.LAZY)
     private List<Review> reviews = new ArrayList<>();
 
     @UpdateTimestamp
     private LocalDateTime lastUpdatedDate;
 
-    @ManyToMany(mappedBy = "courses")
+    @JsonBackReference
+    @ManyToMany(mappedBy = "courses", fetch = FetchType.LAZY)
     private List<Student> students = new ArrayList<>();
 
     @CreationTimestamp
