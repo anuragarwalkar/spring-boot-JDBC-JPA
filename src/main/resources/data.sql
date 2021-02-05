@@ -14,10 +14,10 @@ INSERT INTO COURSE (id, name, created_date, last_updated_date) values(111, 'Reac
 INSERT INTO COURSE (id, name, created_date, last_updated_date) values(112, 'Angular', sysdate(), sysdate());
 INSERT INTO COURSE (id, name, created_date, last_updated_date) values(113, 'Fuject', sysdate(), sysdate()); 
 
-INSERT INTO REVIEW (id, description, rating, course_id) values(111, 'this is deno', 'good', 111);
-INSERT INTO REVIEW (id, description, rating, course_id) values(114, 'this is deeded', 'good', 111);
-INSERT INTO REVIEW (id, description, rating, course_id) values(112, 'this is jlkasd', 'bad', 112);
-INSERT INTO REVIEW (id, description, rating, course_id) values(113, 'this is jfk', 'fk', 113);
+INSERT INTO REVIEW (id, description, rating, course_id) values(111, 'this is deno', 'FIVE', 111);
+INSERT INTO REVIEW (id, description, rating, course_id) values(114, 'this is deeded', 'FIVE', 111);
+INSERT INTO REVIEW (id, description, rating, course_id) values(112, 'this is jlkasd', 'FIVE', 112);
+INSERT INTO REVIEW (id, description, rating, course_id) values(113, 'this is jfk', 'FIVE', 113);
 
 INSERT INTO STUDENT_COURSE (STUDENT_ID, COURSE_ID) values(111, 111);
 INSERT INTO STUDENT_COURSE (STUDENT_ID, COURSE_ID) values(112, 111);

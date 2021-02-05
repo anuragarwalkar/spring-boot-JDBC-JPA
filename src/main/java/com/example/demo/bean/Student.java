@@ -3,6 +3,7 @@ package com.example.demo.bean;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -22,6 +23,9 @@ public class Student {
     private Long id;
 
     private String name;
+
+    @Embedded
+    private Address address;
 
     @OneToOne(fetch = FetchType.LAZY)
     private Passport passport;
@@ -78,6 +82,18 @@ public class Student {
 
     public void addCourse(Course course) {
         this.courses.add(course);
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
+    }
+
+    public void setCourses(List<Course> courses) {
+        this.courses = courses;
     }
 
 }
