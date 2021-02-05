@@ -5,7 +5,6 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
-import javax.transaction.Transactional;
 
 import com.example.demo.bean.Review;
 import com.example.demo.bean.Student;
@@ -19,6 +18,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Transactional;
 
 @SpringBootApplication
 public class SpringJpaDemoApplication implements CommandLineRunner {
@@ -42,7 +43,7 @@ public class SpringJpaDemoApplication implements CommandLineRunner {
 	}
 
 	@Override
-	@Transactional
+	@Transactional(isolation = Isolation.READ_COMMITTED)
 	public void run(String... args) throws Exception {
 		// logger.info("Find by id ={}", jpa.findById(111L));
 		// logger.info("Create new ={}", jpa.insert(new Person("Anurag", "Banalore", new
