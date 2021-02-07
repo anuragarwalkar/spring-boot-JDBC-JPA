@@ -75,8 +75,6 @@ public class SpringJpaDemoApplication implements CommandLineRunner {
 
 		// logger.info("Result {}", resultList);
 
-		System.out.println("aasasasasaaaaaaaaaa" + courseRepository.findById(111L));
-
 	}
 
 }
