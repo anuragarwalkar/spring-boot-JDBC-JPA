@@ -29,7 +29,7 @@ public class Review {
 
     }
 
-    public Review(String description, String rating) {
+    public Review(String description, ReviewRating rating) {
         this.description = description;
         this.rating = rating;
     }
